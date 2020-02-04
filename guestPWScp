@@ -11,6 +11,6 @@ done
 
 sed -i "1s/^/\`\`\`\n/" /home/opc/project/guestPassword.txt
 echo "\`\`\`" >> "/home/opc/project/guestPassword.txt"
-curl -X POST -H --silent --data-urlencode "payload={\"text\": \"$(cat /home/opc/project/guestPassword.txt | sed "s/\"/'/g")\"}" https://hooks.slack.com/services/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
+curl -X POST -H --silent --data-urlencode "payload={\"text\": \"$(cat /home/opc/project/guestPassword.txt | sed "s/\"/'/g")\"}" https://hooks.slack.com/services/<slack's api key>
 password=$(head -n 5 /home/opc/project/guestPassword.txt | tail -n +5 | cut -d ' ' -f2)	
 curl -X POST -H 'Content-type: application/json' --data '{"text": "'"$password"'"}' https://hooks.slack.com/services/<slack's api key>
